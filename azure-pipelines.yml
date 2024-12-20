@@ -31,5 +31,50 @@ stages:
         deploymentMode: 'Incremental'
         deploymentOutputs: 'StorageDeploymentOutputs'
 
+    - task: AzureResourceManagerTemplateDeployment@3
+      displayName: "Deploy Service Bus"
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: 'Azure subscription 1(2ca40756-e319-40dd-84a5-ca8148b8ed59)'
+        subscriptionId: '2ca40756-e319-40dd-84a5-ca8148b8ed59'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: 'TP2_Final'
+        location: 'Canada Central'
+        templateLocation: 'Linked artifact'
+        csmFile: '$(Build.SourcesDirectory)/ServiceBus/azuredeploy.json'
+        csmParametersFile: '$(Build.SourcesDirectory)/ServiceBus/azuredeploy.parameters.json'
+        deploymentMode: 'Incremental'
+        deploymentOutputs: 'ServiceBusDeploymentOutputs'
 
+
+    # Deploy Function App 1
+    - task: AzureResourceManagerTemplateDeployment@3
+      displayName: "Deploy Function App 1"
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: 'Azure subscription 1(2ca40756-e319-40dd-84a5-ca8148b8ed59)'
+        subscriptionId: '2ca40756-e319-40dd-84a5-ca8148b8ed59'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: 'TP2_Final'
+        location: 'Canada Central'
+        templateLocation: 'Linked artifact'
+        csmFile: '$(Build.SourcesDirectory)/AzureFunction1/azuredeploy.json'
+        csmParametersFile: '$(Build.SourcesDirectory)/AzureFunction1/azuredeploy.parameters.json'
+        deploymentMode: 'Incremental'
+
+    # Deploy Function App 2
+    - task: AzureResourceManagerTemplateDeployment@3
+      displayName: "Deploy Function App 2"
+      inputs:
+        deploymentScope: 'Resource Group'
+        azureResourceManagerConnection: 'Azure subscription 1(2ca40756-e319-40dd-84a5-ca8148b8ed59)'
+        subscriptionId: '2ca40756-e319-40dd-84a5-ca8148b8ed59'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: 'TP2_Final'
+        location: 'Canada Central'
+        templateLocation: 'Linked artifact'
+        csmFile: '$(Build.SourcesDirectory)/AzureFunction2/azuredeploy.json'
+        csmParametersFile: '$(Build.SourcesDirectory)/AzureFunction2/azuredeploy.parameters.json'
+        deploymentMode: 'Incremental'
+ 
 

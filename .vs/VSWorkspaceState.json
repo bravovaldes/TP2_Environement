@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\StorageAccount"
+    "\\AzureFunction1",
+    "\\AzureFunction2",
+    "\\ServiceBus"
   ],
-  "SelectedNode": "\\StorageAccount\\azuredeploy.parameters.json",
   "PreviewInSolutionExplorer": false
 }
