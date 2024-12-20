@@ -6,8 +6,7 @@
 trigger:
 - main
 
-pool:
-  "default"
+pool: "default"
 
 stages:
 - stage: DeployInfra
